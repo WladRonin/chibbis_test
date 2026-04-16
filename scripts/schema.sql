@@ -1,26 +1,5 @@
 -- Считаем все таблички STG-слоем, поэтому загружаем почти "as is"
 
-CREATE TABLE IF NOT EXISTS stg_companies (
-    tk INTEGER PRIMARY KEY, -- добавил технический ключ
-    name TEXT,
-    catchPhrase TEXT,
-    bs TEXT,
-    extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.com'
-);
-
-CREATE TABLE IF NOT EXISTS stg_addresses (
-    tk INTEGER PRIMARY KEY, -- добавил технический ключ
-    street TEXT,
-    suite TEXT,
-    city TEXT,
-    zipcode TEXT,
-    geo_lat REAL,
-    geo_lng REAL,
-    extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.com'
-);
-
 CREATE TABLE IF NOT EXISTS stg_users (
     id INTEGER PRIMARY KEY,
     name TEXT,
@@ -28,8 +7,18 @@ CREATE TABLE IF NOT EXISTS stg_users (
     email TEXT,
     phone TEXT,
     website TEXT,
-    adress_tk INTEGER DEFAULT -2,
-    company_tk INTEGER DEFAULT -2,
+    --
+    address_street TEXT,
+    address_suite TEXT,
+    address_city TEXT,
+    address_zipcode TEXT,
+    address_geo_lat REAL,
+    address_geo_lng REAL,
+    --
+    company_name TEXT,
+    company_catchPhrase TEXT,
+    company_bs TEXT,
+    --
     extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
     source_system TEXT DEFAULT 'jsonplaceholder.com',
     FOREIGN KEY (adress_tk) REFERENCES stg_addresses (tk),
