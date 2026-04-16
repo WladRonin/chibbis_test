@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS stg_users (
     company_bs TEXT,
     --
     extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.com',
+    source_system TEXT DEFAULT 'jsonplaceholder.typicode.com/users/users',
     FOREIGN KEY (adress_tk) REFERENCES stg_addresses (tk),
     FOREIGN KEY (company_tk) REFERENCES stg_companies (tk)
 );
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS stg_posts (
     title TEXT NOT NULL,
     body TEXT,
     extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.com',
+    source_system TEXT DEFAULT 'jsonplaceholder.typicode.com/users/posts',
     FOREIGN KEY (userId) REFERENCES stg_users (id)
 );
 
@@ -43,6 +43,6 @@ CREATE TABLE IF NOT EXISTS stg_comments (
                          -- Возможно дело в том, что комментировать можно без логина, но все равно странно
     body TEXT,
     extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.com',
+    source_system TEXT DEFAULT 'jsonplaceholder.typicode.com/users/comments',
     FOREIGN KEY (postId) REFERENCES stg_posts (id)
 );
