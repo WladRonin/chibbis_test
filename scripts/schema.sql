@@ -20,9 +20,7 @@ CREATE TABLE IF NOT EXISTS stg_users (
     company_bs TEXT,
     --
     extracted_dttm DATETIME DEFAULT CURRENT_TIMESTAMP,
-    source_system TEXT DEFAULT 'jsonplaceholder.typicode.com/users/users',
-    FOREIGN KEY (adress_tk) REFERENCES stg_addresses (tk),
-    FOREIGN KEY (company_tk) REFERENCES stg_companies (tk)
+    source_system TEXT DEFAULT 'jsonplaceholder.typicode.com/users/users'
 );
 
 CREATE TABLE IF NOT EXISTS stg_posts (
