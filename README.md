@@ -1,5 +1,6 @@
 # chibbis_test
 My test case for chibbis vacancy
+
 ETL-процесс для загрузки данных из JSONPlaceholder в локальную базу данных SQLite. 
 
 ## Функционал
